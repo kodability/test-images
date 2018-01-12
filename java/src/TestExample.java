@@ -1,9 +1,9 @@
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.testng.AssertJUnit.*;
+import org.testng.annotations.*;
 
 public class TestExample {
 
-    @Test(timeout= 1000)
+    @Test(timeOut= 1000)
     public void test1() {
         Example e = new Example();
         assertEquals(55, e.sum(1, 10));
