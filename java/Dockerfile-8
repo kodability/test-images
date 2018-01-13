@@ -1,0 +1,13 @@
+FROM openjdk:8u151-jdk-alpine
+
+LABEL maintainer="kodability"
+LABEL name="kodability test with jdk8"
+
+RUN apk add --update make
+
+RUN mkdir /test
+
+COPY . /test
+
+WORKDIR /test
+CMD make all
