@@ -3,7 +3,7 @@ FROM openjdk:9.0.1-jdk-slim
 LABEL maintainer="kodability"
 LABEL name="kodability test with jdk9"
 
-RUN apt-get update && apt-get install -y make
+RUN apt-get update && apt-get install -y make wget
 
 RUN mkdir /test
 

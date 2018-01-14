@@ -1,0 +1,7 @@
+.gitignore
+Dockerfile*
+classes
+report
+src
+test-output
+*.md

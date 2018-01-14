@@ -1,0 +1,4 @@
+*.class
+*.jar
+/report
+/test-output

@@ -1,4 +1,4 @@
-# groovy test
+# scala test
 
 ## Setup
 Download dependency files:
@@ -8,7 +8,7 @@ $ make dep
 ```
 
 ## How to test
-Create source and test files in `src` directory. For example, `Foo.groovy` and `TestFoo.groovy`.
+Create source and test files in `src` directory. For example, `Foo.scala` and `TestFoo.scala`.
 
 Compile source files:
 
