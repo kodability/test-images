@@ -1,8 +1,9 @@
-FROM openjdk:8u151-jdk-alpine
+FROM groovy:3.0-jre8-alpine
 
 LABEL maintainer="kodability"
-LABEL name="kodability test with jdk8"
+LABEL name="kodability test with groovy 2.4"
 
+USER root
 RUN apk add --update make
 
 RUN mkdir /test
@@ -10,6 +11,4 @@ RUN mkdir /test
 COPY . /test
 
 WORKDIR /test
-RUN make dep
-
 CMD make all
