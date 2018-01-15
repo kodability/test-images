@@ -1,0 +1,10 @@
+.gitignore
+/Dockerfile*
+/node_modules
+/report
+/src
+/test
+/Makefile
+/*.lock
+/package-lock.json
+*.md

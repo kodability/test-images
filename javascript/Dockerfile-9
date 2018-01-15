@@ -1,0 +1,13 @@
+FROM node:9-alpine
+
+LABEL maintainer="kodability"
+LABEL name="kodability test using node.js 9.x"
+
+RUN mkdir /test
+
+COPY . /test
+
+WORKDIR /test
+RUN yarn install
+
+CMD yarn test
