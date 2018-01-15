@@ -1,7 +1,7 @@
 FROM openjdk:8u151-jdk-alpine
 
 LABEL maintainer="kodability"
-LABEL name="kodability test with jdk8"
+LABEL name="kodability test using jdk8"
 
 RUN apk add --update make wget
 

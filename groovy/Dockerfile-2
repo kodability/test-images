@@ -1,7 +1,7 @@
 FROM groovy:2.4-jre8-alpine
 
 LABEL maintainer="kodability"
-LABEL name="kodability test with groovy 2.4"
+LABEL name="kodability test using groovy 2.4"
 
 USER root
 RUN apk add --update make

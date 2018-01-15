@@ -1,7 +1,7 @@
 FROM frolvlad/alpine-scala:2.12
 
 LABEL maintainer="kodability"
-LABEL name="kodability test with scala 2.12"
+LABEL name="kodability test using scala 2.12"
 
 RUN apk add --update make wget
 
