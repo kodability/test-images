@@ -1,0 +1,5 @@
+.gitignore
+Dockerfile*
+ext
+report
+*.md

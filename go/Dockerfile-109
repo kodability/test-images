@@ -1,0 +1,15 @@
+FROM golang:1.9-alpine
+
+LABEL maintainer="kodability"
+LABEL name="kodability test using golang 1.9"
+
+RUN apk add --update make git
+
+RUN mkdir /test
+
+COPY . /test
+
+WORKDIR /test
+RUN make clean && make dep
+
+CMD make test
