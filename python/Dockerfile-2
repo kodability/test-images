@@ -1,0 +1,15 @@
+FROM python:2.7-alpine
+
+LABEL maintainer="kodability"
+LABEL name="kodability test using python 2.7"
+
+RUN apk add --update make
+
+RUN mkdir /test
+
+COPY . /test
+
+WORKDIR /test
+RUN pip install unittest-xml-reporting
+
+CMD make test
