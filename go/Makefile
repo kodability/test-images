@@ -1,9 +1,9 @@
-CUR_DIR=$(shell pwd)
-EXT_DIR=$(CUR_DIR)/ext
+BASE_DIR=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+EXT_DIR=$(BASE_DIR)/ext
 PKG_DIR=$(EXT_DIR)/pkg
 BIN_DIR=$(EXT_DIR)/bin
-SRC_DIR=$(CUR_DIR)/src
-REPORT_DIR=$(CUR_DIR)/report
+SRC_DIR=$(BASE_DIR)/src
+REPORT_DIR=$(BASE_DIR)/report
 
 IMAGE_NAME=kodability/go
 
@@ -11,7 +11,7 @@ image1:
 	@docker build -t $(IMAGE_NAME):1.9 -f Dockerfile-109 ./
 
 sh1:
-	docker run --rm -it -v $(CUR_DIR)/src:/test/src $(IMAGE_NAME):1.9 /bin/sh
+	docker run --rm -it -v $(BASE_DIR)/src:/test/src $(IMAGE_NAME):1.9 /bin/sh
 
 run1:
 	docker run --rm -v $(SRC_DIR):/test/src -v $(REPORT_DIR):/test/report $(IMAGE_NAME):1.9
@@ -21,7 +21,7 @@ dep:
 
 test:
 	@mkdir -p $(REPORT_DIR)
-	@GOPATH=$(EXT_DIR):$(CUR_DIR) go test -v $(SRC_DIR)/*.go 2>&1 | $(BIN_DIR)/go-junit-report > $(REPORT_DIR)/report.xml
+	@GOPATH=$(EXT_DIR):$(BASE_DIR) go test -v $(SRC_DIR)/*.go 2>&1 | $(BIN_DIR)/go-junit-report > $(REPORT_DIR)/report.xml
 
 clean:
 	@rm -rf $(EXT_DIR) $(REPORT_DIR)

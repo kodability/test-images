@@ -1,7 +1,7 @@
-CUR_DIR=$(shell pwd)
-SRC_DIR=$(CUR_DIR)/src
-TEST_DIR=$(CUR_DIR)/test
-REPORT_DIR=$(CUR_DIR)/report
+BASE_DIR=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+SRC_DIR=$(BASE_DIR)/src
+TEST_DIR=$(BASE_DIR)/test
+REPORT_DIR=$(BASE_DIR)/report
 
 IMAGE_NAME=kodability/javascript
 

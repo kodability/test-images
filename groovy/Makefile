@@ -1,9 +1,9 @@
-CUR_DIR=$(shell pwd)
-LIB_DIR=$(CUR_DIR)/libs
-SRC_DIR=$(CUR_DIR)/src
-OUT_DIR=$(CUR_DIR)/classes
-TEST_OUTPUT_DIR=$(CUR_DIR)/test-output
-REPORT_DIR=$(CUR_DIR)/report
+BASE_DIR=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+LIB_DIR=$(BASE_DIR)/libs
+SRC_DIR=$(BASE_DIR)/src
+OUT_DIR=$(BASE_DIR)/classes
+TEST_OUTPUT_DIR=$(BASE_DIR)/test-output
+REPORT_DIR=$(BASE_DIR)/report
 
 IMAGE_NAME=kodability/groovy
 
@@ -15,9 +15,9 @@ image3:
 	@docker build -t $(IMAGE_NAME):3 -f Dockerfile-3 ./
 
 sh2:
-	docker run --rm -it -v $(CUR_DIR)/src:/test/src $(IMAGE_NAME):2 /bin/sh
+	docker run --rm -it -v $(BASE_DIR)/src:/test/src $(IMAGE_NAME):2 /bin/sh
 sh3:
-	docker run --rm -it -v $(CUR_DIR)/src:/test/src $(IMAGE_NAME):3 /bin/sh
+	docker run --rm -it -v $(BASE_DIR)/src:/test/src $(IMAGE_NAME):3 /bin/sh
 
 run2:
 	docker run --rm -v $(SRC_DIR):/test/src -v $(REPORT_DIR):/test/report $(IMAGE_NAME):2
