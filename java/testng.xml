@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >  
-<suite name="SuiteAll" verbose="0">
-    <test name="TestAll">  
-        <packages>  
-            <package name=""/>
-        </packages>  
-    </test>  
-</suite>

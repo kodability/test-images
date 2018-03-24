@@ -1,4 +1,4 @@
-FROM openjdk:8u151-jdk-alpine
+FROM openjdk:8-jdk-alpine
 
 LABEL maintainer="kodability"
 LABEL name="kodability test using jdk8"

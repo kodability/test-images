@@ -31,7 +31,7 @@ compile:
 
 test:
 	@/bin/rm -rf $(TEST_OUTPUT_DIR)
-	@java -cp "$(GROOVY_HOME)/lib/*:$(OUT_DIR)" org.testng.TestNG -testclass $(TEST) testng.xml
+	@java -cp "$(GROOVY_HOME)/lib/*:$(OUT_DIR)" org.testng.TestNG -testclass $(TEST)
 
 copyreport:
 	@mkdir -p $(REPORT_DIR)
@@ -39,4 +39,6 @@ copyreport:
 	@cp $(TEST_OUTPUT_DIR)/junitreports/*.xml $(REPORT_DIR)
 
 all:
-	@make compile && make test && make copyreport
+	@make compile
+	@make test || true
+	@make copyreport

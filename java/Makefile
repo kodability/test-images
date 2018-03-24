@@ -15,18 +15,18 @@ dep:
 
 image8:
 	docker build -t $(IMAGE_NAME):8 -f Dockerfile-8 ./
-image9:
-	docker build -t $(IMAGE_NAME):9 -f Dockerfile-9 ./
+image10:
+	docker build -t $(IMAGE_NAME):10 -f Dockerfile-10 ./
 
 sh8:
 	docker run --rm -it -v $(BASE_DIR)/src:/test/src $(IMAGE_NAME):8 /bin/sh
-sh9:
-	docker run --rm -it -v $(BASE_DIR)/src:/test/src $(IMAGE_NAME):9 /bin/sh
+sh10:
+	docker run --rm -it -v $(BASE_DIR)/src:/test/src $(IMAGE_NAME):10 /bin/sh
 
 run8:
 	docker run --rm -v $(SRC_DIR):/test/src -v $(REPORT_DIR):/test/report $(IMAGE_NAME):8
-run9:
-	docker run --rm -v $(SRC_DIR):/test/src -v $(REPORT_DIR):/test/report $(IMAGE_NAME):9
+run10:
+	docker run --rm -v $(SRC_DIR):/test/src -v $(REPORT_DIR):/test/report $(IMAGE_NAME):10
 
 compile:
 	@/bin/rm -rf $(OUT_DIR)
@@ -35,7 +35,7 @@ compile:
 
 test:
 	@/bin/rm -rf $(TEST_OUTPUT_DIR)
-	@java -cp "$(LIB_DIR)/*:$(OUT_DIR)" org.testng.TestNG -testclass $(TEST) testng.xml
+	@java -cp "$(LIB_DIR)/*:$(OUT_DIR)" org.testng.TestNG -testclass $(TEST)
 
 copyreport:
 	@mkdir -p $(REPORT_DIR)
@@ -43,4 +43,6 @@ copyreport:
 	@cp $(TEST_OUTPUT_DIR)/junitreports/*.xml $(REPORT_DIR)
 
 all:
-	make compile && make test && make copyreport
+	@make compile
+	@make test || true
+	@make copyreport
