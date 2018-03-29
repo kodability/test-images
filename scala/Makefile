@@ -37,4 +37,6 @@ copyreport:
 	@cp $(TEST_OUTPUT_DIR)/junitreports/*.xml $(REPORT_DIR)
 
 all:
-	@make compile && make test && make copyreport
+	@make compile
+	@make test || true
+	@make copyreport
