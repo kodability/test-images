@@ -29,7 +29,7 @@ compile:
 
 test:
 	@/bin/rm -rf $(TEST_OUTPUT_DIR)
-	@java -cp "$(SCALA_HOME)/lib/*:$(LIB_DIR)/*:$(OUT_DIR)" org.testng.TestNG -testclass $(TEST) testng.xml
+	@java -cp "$(SCALA_HOME)/lib/*:$(LIB_DIR)/*:$(OUT_DIR)" org.testng.TestNG -testclass $(TEST)
 
 copyreport:
 	@mkdir -p $(REPORT_DIR)
